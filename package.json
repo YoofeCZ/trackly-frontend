@@ -31,6 +31,7 @@
     "cross-env": "7.0.3",
     "dayjs": "1.11.13",
     "docx": "9.0.3",
+    "docxtemplater": "^3.54.0",
     "file-saver": "^2.0.5",
     "grapesjs": "0.22.3",
     "moment": "2.30.1",
