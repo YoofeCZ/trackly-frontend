@@ -2,7 +2,7 @@
 import axios from 'axios';
 import superagent from "superagent";
 
-const API_URL = 'http://localhost:5000/api'; // URL backendu
+const BASE_URL = 'https://trackly-backend-production.up.railway.app/api'; // URL backendu
 
 // Funkce pro získání všech techniků
 export const getTechnicians = async () => {
