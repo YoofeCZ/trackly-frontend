@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Technicians from "./pages/Technicians";
@@ -47,7 +47,7 @@ function App() {
   };
 
   return (
-    <Router> {/* Zabaleno do HashRouter */}
+    <>
       {/* Navbar bude viditelný pouze pro přihlášené uživatele */}
       {isAuthenticated && <Navbar onLogout={handleLogout} />}
       {loading ? (
@@ -104,7 +104,7 @@ function App() {
           />
         </Routes>
       )}
-    </Router>
+    </>
   );
 }
 
