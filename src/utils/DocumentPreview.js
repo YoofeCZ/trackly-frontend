@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Mammoth from "mammoth";
-
-
 
 const DocumentPreview = ({ templatePath }) => {
   const [htmlContent, setHtmlContent] = useState("");
 
-  const loadTemplate = async () => {
+  // Stabilizace funkce loadTemplate pomocí useCallback
+  const loadTemplate = useCallback(async () => {
     try {
       const response = await fetch(templatePath);
       const templateArrayBuffer = await response.arrayBuffer();
@@ -15,11 +14,14 @@ const DocumentPreview = ({ templatePath }) => {
     } catch (error) {
       console.error("Chyba při načítání šablony:", error);
     }
-  };
+  }, [templatePath]); // Závisí pouze na templatePath
 
-  React.useEffect(() => {
+  // useEffect s loadTemplate v závislostech
+  // Ignorování ESLint varování, pokud jste si jisti, že je vše správně
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
     loadTemplate();
-  }, [templatePath]);
+  }, [loadTemplate]);
 
   return (
     <div dangerouslySetInnerHTML={{ __html: htmlContent }} />

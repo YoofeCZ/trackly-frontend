@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { loginUser } from "../services/api"; // Import API funkce
-import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // Inicializace navigate pro přesměrování
-
   // Při přihlášení uživatele
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -20,8 +20,6 @@ import dayjs from "dayjs";
 import superagent from "superagent";
 import { useNavigate } from 'react-router-dom'; // Přidání importu
 import { SearchOutlined } from "@ant-design/icons";
-import { generateDocument } from "../utils/generateDocument";
-import DocumentPreview from "../utils/DocumentPreview";
 import Docxtemplater from "docxtemplater";
 import mammoth from "mammoth";
 import PizZip from "pizzip"; // Přidejte tento import
@@ -32,8 +30,7 @@ const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const ReportPage = () => {
   const navigate = useNavigate(); // Správné umístění navigace
-  const [filteredReports, setFilteredReports] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [setSearchTerm] = useState("");
   const [clients, setClients] = useState([]);
   const [technicians, setTechnicians] = useState([]);
   const [reportList, setReportList] = useState([]);

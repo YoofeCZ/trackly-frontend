@@ -162,7 +162,13 @@ const handleCreateFolder = async () => {
 
     // Posíláme cestu na backend
     const response = await createClientFolder(currentClient.id, folderPath);
-    message.success('Složka byla vytvořena.');
+
+    if (response && response.success) {
+      message.success('Složka byla vytvořena.');
+    } else {
+      message.warning('Složka možná nebyla vytvořena správně. Ověřte výsledek.');
+    }
+
     setIsFolderModalOpen(false);
     setNewFolderName(''); // Reset názvu
     handleShowFiles(currentClient, currentPath); // Aktualizace seznamu souborů
