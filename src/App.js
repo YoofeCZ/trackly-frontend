@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Technicians from "./pages/Technicians";
@@ -8,7 +8,7 @@ import Reports from "./pages/Reports";
 import Tasks from "./pages/Tasks";
 import Warehouse from "./pages/Warehouse";
 import Login from "./pages/Login";
-import { loginUser } from './services/api';  // Ujistěte se, že máte tuto funkci v api.js pro přihlášení
+import { loginUser } from './services/api';
 import CreateUser from './pages/CreateUser';
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
   };
 
   return (
-    <>
+    <Router> {/* Zabaleno do HashRouter */}
       {/* Navbar bude viditelný pouze pro přihlášené uživatele */}
       {isAuthenticated && <Navbar onLogout={handleLogout} />}
       {loading ? (
@@ -66,11 +66,11 @@ function App() {
             }
           />
           <Route
-  path="/create-user"
-  element={
-    isAuthenticated ? <CreateUser /> : <Navigate to="/login" />
-  }
-/>
+            path="/create-user"
+            element={
+              isAuthenticated ? <CreateUser /> : <Navigate to="/login" />
+            }
+          />
           {/* Přesměrování na login při přístupu na root */}
           <Route path="/" element={<Navigate to="/login" />} />
           {/* Chráněné stránky */}
@@ -104,7 +104,7 @@ function App() {
           />
         </Routes>
       )}
-    </>
+    </Router>
   );
 }
 
