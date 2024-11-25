@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/trackly-frontend/static/css/main.754adff6.css",
-    "main.js": "/trackly-frontend/static/js/main.344316c6.js",
+    "main.js": "/trackly-frontend/static/js/main.58ace0c2.js",
     "static/js/453.ca8d9a1a.chunk.js": "/trackly-frontend/static/js/453.ca8d9a1a.chunk.js",
     "static/media/do.svg": "/trackly-frontend/static/media/do.164feaa1f07e28af064b.svg",
     "static/media/bo.svg": "/trackly-frontend/static/media/bo.3c25f404c1260f4b3c9f.svg",
@@ -389,11 +389,11 @@
     "static/media/pl.svg": "/trackly-frontend/static/media/pl.55073d98d77a5b6ce0c1.svg",
     "static/media/bd.svg": "/trackly-frontend/static/media/bd.cdbfe8d5d9dedda3b314.svg",
     "main.754adff6.css.map": "/trackly-frontend/static/css/main.754adff6.css.map",
-    "main.344316c6.js.map": "/trackly-frontend/static/js/main.344316c6.js.map",
+    "main.58ace0c2.js.map": "/trackly-frontend/static/js/main.58ace0c2.js.map",
     "453.ca8d9a1a.chunk.js.map": "/trackly-frontend/static/js/453.ca8d9a1a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.754adff6.css",
-    "static/js/main.344316c6.js"
+    "static/js/main.58ace0c2.js"
   ]
 }
