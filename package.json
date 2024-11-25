@@ -41,6 +41,7 @@
     "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
     "solar-servis-frontend": "file:",
+    "superagent": "^10.1.1",
     "web-vitals": "2.1.4",
     "worker-loader": "3.0.8"
   },
