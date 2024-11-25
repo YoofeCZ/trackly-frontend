@@ -2,11 +2,14 @@
   "name": "solar-servis-frontend",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://YoofeCZ.github.io/trackly-frontend",
   "scripts": {
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@ant-design/icons": "5.5.1",
@@ -43,7 +46,8 @@
     "worker-loader": "3.0.8"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "gh-pages": "^6.2.0"
   },
   "eslintConfig": {
     "extends": [

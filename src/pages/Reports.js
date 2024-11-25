@@ -63,7 +63,7 @@ const ReportPage = () => {
 useEffect(() => {
   const fetchMaterialsFromWarehouse = async () => {
     try {
-      const response = await superagent.get("http://localhost:5000/api/warehouse");
+      const response = await superagent.get("https://trackly-backend-production.up.railway.app/api/warehouse");
       setMaterials(response.body); // Načtení skladových materiálů
     } catch (error) {
       message.error("Chyba při načítání materiálů ze skladu.");
@@ -91,7 +91,7 @@ useEffect(() => {
   const fetchReports = async () => {
     setLoadingReports(true);
     try {
-      const response = await fetch("http://localhost:5000/api/reports");
+      const response = await fetch("https://trackly-backend-production.up.railway.app/api/reports");
       const data = await response.json();
       console.log("Načtená data:", data); // Debug
       setOriginalReportList(data);
@@ -270,7 +270,7 @@ const handleCloseDetails = () => {
       }
 
       fetch(
-        `http://localhost:5000/api/distance?origins=${selectedPositions.from.lat},${selectedPositions.from.lng}&destinations=${selectedPositions.to.lat},${selectedPositions.to.lng}`
+        `https://trackly-backend-production.up.railway.app/api/distance?origins=${selectedPositions.from.lat},${selectedPositions.from.lng}&destinations=${selectedPositions.to.lat},${selectedPositions.to.lng}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -300,7 +300,7 @@ const handleCloseDetails = () => {
 
   const handleDeleteReport = async (report) => {
     try {
-      await superagent.delete(`http://localhost:5000/api/reports/${report.id}`);
+      await superagent.delete(`https://trackly-backend-production.up.railway.app/api/reports/${report.id}`);
       message.success("Report byl úspěšně smazán.");
       fetchReports(); // Aktualizace seznamu reportů
     } catch (error) {
@@ -604,7 +604,7 @@ const handleCloseDetails = () => {
                 message.warning("Tento OP kód již byl klientovi přiřazen.");
             } else {
                 await superagent
-                    .post(`http://localhost:5000/api/clients/${selectedClient.id}/assign-op`)
+                    .post(`https://trackly-backend-production.up.railway.app/api/clients/${selectedClient.id}/assign-op`)
                     .send({ opCode: values.opCode });
                 message.success("OP kód byl úspěšně přiřazen klientovi.");
             }

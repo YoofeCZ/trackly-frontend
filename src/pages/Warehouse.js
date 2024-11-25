@@ -10,7 +10,7 @@ const Warehouse = () => {
   // Načtení materiálů ze skladu
   const fetchMaterials = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/warehouse');
+      const response = await axios.get('https://trackly-backend-production.up.railway.app/api/warehouse');
       setMaterials(response.data);
     } catch (error) {
       message.error('Chyba při načítání skladu');
@@ -23,7 +23,7 @@ const Warehouse = () => {
 
   const handleAddMaterial = async (values) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/warehouse', values);
+      const response = await axios.post('https://trackly-backend-production.up.railway.app/api/warehouse', values);
       setMaterials([...materials, response.data]);
       message.success('Materiál byl úspěšně přidán!');
       setIsModalVisible(false);
@@ -35,7 +35,7 @@ const Warehouse = () => {
 
   const handleDeleteMaterial = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/warehouse/${id}`);
+      await axios.delete(`https://trackly-backend-production.up.railway.app/api/warehouse/${id}`);
       setMaterials(materials.filter((material) => material.id !== id));
       message.success('Materiál byl úspěšně smazán!');
     } catch (error) {

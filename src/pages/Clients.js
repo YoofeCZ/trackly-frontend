@@ -105,7 +105,7 @@ const handleShowFiles = async (client, path = '') => {
     setIsFileManagerVisible(true);
     setCurrentPath(path); // Nastavuje aktuální cestu správně
 
-    const response = await fetch(`http://localhost:5000/api/clients/${client.id}/files?path=${path}`);
+    const response = await fetch(`https://trackly-backend-production.up.railway.app/api/clients/${client.id}/files?path=${path}`);
     const data = await response.json();
 
     if (Array.isArray(data.files)) {
@@ -132,8 +132,8 @@ const handleFileDownload = (files) => {
   files.forEach((file) => {
     if (!file.isDirectory) {
       const fileURL = file.path.startsWith('/uploads')
-        ? `http://localhost:5000${file.path}`
-        : `http://localhost:5000/uploads/${file.path}`;
+        ? `https://trackly-backend-production.up.railway.app${file.path}`
+        : `https://trackly-backend-production.up.railway.app/uploads/${file.path}`;
 
       const link = document.createElement('a');
       link.href = fileURL;
@@ -185,7 +185,7 @@ const handleCreateFolder = async () => {
       cancelText: 'Ne',
       onOk: async () => {
         try {
-          await fetch(`http://localhost:5000/api/clients/${currentClient.id}/files`, {
+          await fetch(`https://trackly-backend-production.up.railway.app/api/clients/${currentClient.id}/files`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ path: file.path }),
@@ -242,8 +242,8 @@ const handleCreateFolder = async () => {
 
   const handleFileOpen = (file) => {
     const fileURL = file.path.startsWith('/uploads')
-      ? `http://localhost:5000${file.path}` // Cesta už obsahuje /uploads
-      : `http://localhost:5000/uploads/${file.path}`; // Přidáme /uploads jen pokud chybí
+      ? `https://trackly-backend-production.up.railway.app${file.path}` // Cesta už obsahuje /uploads
+      : `https://trackly-backend-production.up.railway.app/uploads/${file.path}`; // Přidáme /uploads jen pokud chybí
   
     window.open(fileURL, '_blank');
   };

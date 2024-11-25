@@ -2,11 +2,11 @@
 import axios from 'axios';
 import superagent from "superagent";
 
-const API_URL = 'http://localhost:5000/api'; // URL backendu
+const API_URL = 'https://trackly-backend-production.up.railway.app/api'; // URL backendu
 
 // Funkce pro získání všech techniků
 export const getTechnicians = async () => {
-  const response = await fetch('http://localhost:5000/api/technicians');
+  const response = await fetch('https://trackly-backend-production.up.railway.app/api/technicians');
   return response.json();
 };
 
@@ -106,7 +106,7 @@ export const createTechnician = async (technicianData) => {
 // Funkce pro získání reportu podle ID
 export const getReportById = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:5000/api/reports/${id}`);
+    const response = await axios.get(`https://trackly-backend-production.up.railway.app/api/reports/${id}`);
     return response.data;
   } catch (error) {
     console.error('Chyba při získávání reportu:', error);
@@ -151,7 +151,7 @@ export const getClients = async () => {
 export const createClient = async (clientData) => {
   try {
     console.log("Odesílám data do backendu:", clientData); // Přidáme logování
-    const response = await fetch('http://localhost:5000/api/clients', {
+    const response = await fetch('https://trackly-backend-production.up.railway.app/api/clients', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -268,7 +268,7 @@ export const deleteTask = async (taskId) => {
 };
 
 export const updateClient = async (clientId, clientData) => {
-  const response = await fetch(`http://localhost:5000/api/clients/${clientId}`, { // Absolutní URL
+  const response = await fetch(`https://trackly-backend-production.up.railway.app/api/clients/${clientId}`, { // Absolutní URL
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(clientData),
@@ -284,7 +284,7 @@ export const updateClient = async (clientId, clientData) => {
 
 
 export const deleteClient = async (id) => {
-  const response = await fetch(`http://localhost:5000/api/clients/${id}`, {
+  const response = await fetch(`https://trackly-backend-production.up.railway.app/api/clients/${id}`, {
     method: 'DELETE',
   });
 
@@ -321,7 +321,7 @@ export const addWarehouseItem = async (item) => {
 // Načtení materiálů ze skladu
 export const fetchMaterialsFromWarehouse = async () => {
   try {
-      const response = await superagent.get("http://localhost:5000/api/warehouse");
+      const response = await superagent.get("https://trackly-backend-production.up.railway.app/api/warehouse");
       return response.body;
   } catch (error) {
       console.error("Chyba při načítání materiálů ze skladu:", error);
@@ -334,7 +334,7 @@ export const fetchMaterialsFromWarehouse = async () => {
 export const updateWarehouseItem = async (id, data) => {
   try {
       const response = await superagent
-          .put(`http://localhost:5000/api/warehouse/${id}`)
+          .put(`https://trackly-backend-production.up.railway.app/api/warehouse/${id}`)
           .send(data);
       return response.body;
   } catch (error) {
